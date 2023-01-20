@@ -1,0 +1,22 @@
+SpeechParser:
+  module: SpeechParser
+  class: Speechparser
+  trigger: "light.alexa_virtual"
+  DEBUG: 1
+  entities: 
+    1: binary_sensor.door_window_sensor_158d00019e18bf #front door
+    2: sensor.temperature_158d0001b9205b #living room temp
+    3: group.gupstairs #  upstairs light
+    4: binary_sensor.door_window_sensor_158d00019e1738 #  patio door
+    5: weather.dark_sky #  weather forcast
+  messages:
+    1: "The {$01=FN} {$01=ST|on|is currently open}{$01=ST|off| is currently closed}"
+    2: "The {$02=FN} is currently {$02=ST} centigrade"
+    3: "The {$03=FN} are currently {$03=ST}"
+    4: "The {$04=FN} {$04=ST|on|is currently open}{$04=ST|off|is currently closed}"
+    5: "{g} on {d} the {D} of {m} {y} at {t}, The current outside temperture is {$05=TP} degrees, winspeed is {$05=wind_speed} miles per hour"
+    6: "{$02>ST|10|danger, temperatures high}"
+    7: "{$02>ST|$05=TP|Inside temperature is higher than the outside}"
+    8: "{$02<ST|20|Inside temperature, is lower than 20 degress}"
+  translate:
+    1: morning|morgan
